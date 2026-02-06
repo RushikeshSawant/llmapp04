@@ -29,8 +29,8 @@ class AIService:
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"
         response = self.http_client.post(
-            # f"{self.base_url}/api/chat",
-            f"{self.base_url}/chat/completions",
+            f"{self.base_url}/api/chat",
+            # f"{self.base_url}/chat/completions",
             headers=headers,
             json={
                 "model": model,
