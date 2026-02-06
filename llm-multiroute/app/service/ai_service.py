@@ -43,8 +43,8 @@ class AIService:
             },
         )
         response.raise_for_status()
-        # return response.json()["message"]["content"]
-        return response.json()["choices"][0]["message"]["content"]
+        return response.json()["message"]["content"]
+        # return response.json()["choices"][0]["message"]["content"]
 
     def classify_text(self, text: str) -> ClassificationResponse:
         model = self.router.get_model(TaskType.CLASSIFY)
