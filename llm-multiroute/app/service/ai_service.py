@@ -35,8 +35,8 @@ class AIService:
             json={
                 "model": model,
                 "messages": [
-                    {"role": "system",
-                     "content": "Role: you are a text analysis system that responds in valid JSON format, Only. You never return anything more than JSON result."},
+                    # {"role": "system",
+                    #  "content": "Role: you are a text analysis system that responds in valid JSON format, Only. You never return anything more than JSON result."},
                     {"role": "user", "content": prompt}],
                 "stream": False,
                 "temperature": self.temperature,
@@ -49,6 +49,11 @@ class AIService:
     def classify_text(self, text: str) -> ClassificationResponse:
         model = self.router.get_model(TaskType.CLASSIFY)
         prompt = (
+            # "Analyze the following text and classify it with appropriate labels and tags. "
+            # "Respond with ONLY valid JSON, no additional text or explanation.\n\n"
+            # f"Text: {text}\n\n"
+            # "Return JSON in this exact format:\n"
+            # '{"labels": ["label1", "label2"], "primaryCategory": "category", "confidence": 0.9}'
             "Analyze the following text and classify it with appropriate labels and tags. "
             "Respond with ONLY valid JSON, no additional text or explanation.\n\n"
             f"Text: {text}\n\n"
